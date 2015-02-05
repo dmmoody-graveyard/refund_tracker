@@ -1,7 +1,7 @@
 development:
-  adapter: postresql
+  adapter: postgresql
   database: refund_development
 
 test:
-  adapter: postresql
+  adapter: postgresql
   database: refund_test 
