@@ -1,0 +1,7 @@
+development:
+  adapter: postresql
+  database: refund_development
+
+test:
+  adapter: postresql
+  database: refund_test 
