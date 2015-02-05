@@ -20,5 +20,13 @@ RSpec.configure do |config|
       claimant.destroy
     end
 
+    Physician.all.each do |physician|
+      physician.destroy
+    end
+
+    Provider.all.each do |provider|
+      physician.destroy
+    end
+
   end
 end

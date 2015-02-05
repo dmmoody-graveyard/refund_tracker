@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205230203) do
+ActiveRecord::Schema.define(version: 20150205232454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calls", force: :cascade do |t|
+    t.date    "date"
+    t.text    "note"
+    t.integer "request_id"
+  end
+
+  create_table "cancellations", force: :cascade do |t|
+    t.date    "date"
+    t.text    "reason"
+    t.integer "request_id"
+  end
 
   create_table "cases", force: :cascade do |t|
     t.string "name"
@@ -35,6 +47,16 @@ ActiveRecord::Schema.define(version: 20150205230203) do
     t.integer "cert_id"
   end
 
+  create_table "legals", force: :cascade do |t|
+    t.date    "date"
+    t.integer "request_id"
+  end
+
+  create_table "letters", force: :cascade do |t|
+    t.date    "date"
+    t.integer "request_id"
+  end
+
   create_table "physicians", force: :cascade do |t|
     t.string  "name"
     t.string  "sub_tin"
@@ -45,6 +67,30 @@ ActiveRecord::Schema.define(version: 20150205230203) do
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "tin"
+  end
+
+  create_table "reasons", force: :cascade do |t|
+    t.string "reason_type"
+  end
+
+  create_table "receivables", force: :cascade do |t|
+    t.date    "received"
+    t.decimal "amount"
+    t.date    "posted"
+    t.integer "request_id"
+  end
+
+  create_table "refunds", force: :cascade do |t|
+    t.date    "date"
+    t.integer "responsible_id"
+    t.integer "claimant_id"
+    t.integer "provider_id"
+    t.decimal "amount"
+    t.integer "reason_id"
+  end
+
+  create_table "responsibles", force: :cascade do |t|
+    t.string "request_to"
   end
 
 end
