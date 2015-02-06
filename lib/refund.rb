@@ -4,8 +4,8 @@ class Refund < ActiveRecord::Base
   belongs_to :claimant
   belongs_to :physician
   has_many :cancellation
-  # belongs_to :letters
-  # belongs_to :receivables
-  # belongs_to :legals
-  # belongs_to :calls
+  has_many :letter
+  has_many :receivable
+  has_many :legal
+  has_many :call
 end
