@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Refund do
-  has_many :responsibles
-  has_many :reasons
-  has_many :cancellations
-  has_many :letters
-  had_many :receivables
-  has_one :legals
-  has_many :calls
-  has_and_belongs_to_many :claimants
-  has_and_belongs_to_many :physicians
+  it{ should belong_to :responsible }
+  it{ should belong_to :reason }
+  # it{ should have_one :claimants }
+  # it{ should have_one :physicians }
+  # it{ should belong_to :cancellations }
+  # it{ should belong_to :letters }
+  # it{ should belong_to :receivables }
+  # it{ should belong_to :legals }
+  # it{ should belong_to :calls }
 end
