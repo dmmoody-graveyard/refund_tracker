@@ -1,0 +1,23 @@
+<h1>List of all the Groups</h1>
+
+<ul class="nav nav-tabs">
+	<li role="presentation"><a href="/">Home</a></li>
+	<li role="presentation" class="active"><a href="/case">All Groups</a></li>
+	<li role="presentation"><a href="/case/new">Add New Group</a></li>
+</ul>
+
+<br> 
+
+<div class="container">
+<div class="row col-md-6">
+	<% if @case.any? %>
+		<ul class="list-group">
+		<% @case.each do |group| %>
+			<li class="list-group-item"><%= group.number %> | <a href="/case/<%= group.id %>"><%= group.name %></a></li>
+		<% end %>
+		</ul>
+	<% else %>
+		<p class="lead">You do not have any groups to list.</p>
+	<% end %>
+</div>
+</div>
