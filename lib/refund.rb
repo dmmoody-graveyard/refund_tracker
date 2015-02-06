@@ -1,7 +1,7 @@
 class Refund < ActiveRecord::Base
   belongs_to :responsible
   belongs_to :reason
-  # has_one :claimants
+  belongs_to :claimant
   # has_one :physicians
   # belongs_to :cancellations
   # belongs_to :letters
