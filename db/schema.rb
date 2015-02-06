@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205232454) do
+ActiveRecord::Schema.define(version: 20150206194328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20150205232454) do
   create_table "calls", force: :cascade do |t|
     t.date    "date"
     t.text    "note"
-    t.integer "request_id"
+    t.integer "refund_id"
   end
 
   create_table "cancellations", force: :cascade do |t|
     t.date    "date"
     t.text    "reason"
-    t.integer "request_id"
+    t.integer "refund_id"
   end
 
   create_table "cases", force: :cascade do |t|
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20150205232454) do
 
   create_table "legals", force: :cascade do |t|
     t.date    "date"
-    t.integer "request_id"
+    t.integer "refund_id"
   end
 
   create_table "letters", force: :cascade do |t|
     t.date    "date"
-    t.integer "request_id"
+    t.integer "refund_id"
   end
 
   create_table "physicians", force: :cascade do |t|
@@ -77,14 +77,14 @@ ActiveRecord::Schema.define(version: 20150205232454) do
     t.date    "received"
     t.decimal "amount"
     t.date    "posted"
-    t.integer "request_id"
+    t.integer "refund_id"
   end
 
   create_table "refunds", force: :cascade do |t|
     t.date    "date"
     t.integer "responsible_id"
     t.integer "claimant_id"
-    t.integer "provider_id"
+    t.integer "physician_id"
     t.decimal "amount"
     t.integer "reason_id"
   end
